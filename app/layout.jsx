@@ -6,15 +6,9 @@ import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import { createMetadata } from "@/utils/seoGenerator";
 import "./globals.css";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
+// Change font if needed
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -62,17 +56,6 @@ export default async function RootLayout({ children }) {
             {children}
           </ClerkProvider>
         </Providers>
-        {/* HelpScout Beacon Scripts */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.Beacon('init', 'bd0411a0-123a-4611-81db-fbdf762969fe');`,
-          }}
-        />
       </body>
     </html>
   );
