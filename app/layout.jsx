@@ -1,38 +1,19 @@
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { getToken } from "@/lib/action";
 import Providers from "@/utils/swr-provider/provider";
-import { Inter } from "next/font/google";
+import { Inter, Open_Sans } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
-import { createMetadata } from "@/utils/seoGenerator";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 // Change font if needed
-const inter = Inter({
+const inter = Open_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-primary",
   display: "swap",
 });
 
-export const metadata = createMetadata({
-  keywords: [
-    "donations",
-    "fundraising",
-    "campaign management",
-    "charity",
-    "nonprofit",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Square Donations",
-  },
-  custom: {
-    robots: "index, follow",
-    themeColor: "#008C8B",
-  },
-});
 
 export default async function RootLayout({ children }) {
   const token = await getToken();
