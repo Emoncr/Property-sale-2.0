@@ -24,6 +24,8 @@ export function PropertyCard({ property, className }) {
     return type === "rent" ? `${formatted}/month` : formatted;
   };
 
+  const isListView = className?.includes("md:flex");
+
   return (
     <Card
       className={cn(
@@ -31,7 +33,14 @@ export function PropertyCard({ property, className }) {
         className
       )}
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div
+        className={cn(
+          "relative overflow-hidden",
+          isListView
+            ? "md:w-80 md:flex-shrink-0 aspect-[4/3] md:aspect-[3/2]"
+            : "aspect-[4/3]"
+        )}
+      >
         <Image
           src={property.images[0]}
           alt={property.title}
