@@ -7,7 +7,7 @@ import {
   DollarSign,
   Home,
   Bed,
-  Bath,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,11 +21,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import { usePropertyStore } from "@/lib/store";
 
 export function PropertySearch({ showFilters = false, className }) {
@@ -73,7 +69,7 @@ export function PropertySearch({ showFilters = false, className }) {
           />
         </div>
         <Button
-          variant="outline"
+          variant=""
           onClick={() => setIsFiltersOpen(!isFiltersOpen)}
           className="flex items-center gap-2"
         >
@@ -84,6 +80,7 @@ export function PropertySearch({ showFilters = false, className }) {
               {activeFiltersCount}
             </Badge>
           )}
+          <ChevronDown className="h-4 w-4" />
         </Button>
       </div>
 

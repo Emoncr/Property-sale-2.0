@@ -68,7 +68,11 @@ export function FilterTab() {
                   selectedPropertyType === type.value ? "default" : "outline"
                 }
                 size="sm"
-                className="h-7 text-xs"
+                className={`h-7 text-xs ${
+                  selectedPropertyType === type.value
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : ""
+                }`}
                 onClick={() => setSelectedPropertyType(type.value)}
               >
                 {type.label}
@@ -105,7 +109,11 @@ export function FilterTab() {
                   selectedBedrooms === option.value ? "default" : "outline"
                 }
                 size="sm"
-                className="h-7 text-xs"
+                className={`h-7 text-xs ${
+                  selectedBedrooms === option.value
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : ""
+                }`}
                 onClick={() => setSelectedBedrooms(option.value)}
               >
                 {option.label}
@@ -127,14 +135,14 @@ export function FilterTab() {
               step="100000"
               value={priceRange[1]}
               onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-              className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+              className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider accent-primary"
             />
             <div className="flex justify-between text-xs text-gray-600">
               <span>$0</span>
               <span>
                 {priceRange[1] >= 10000000
                   ? "$10M+"
-                  : `$${(priceRange[1] / 1000000).toFixed(1)}M`}
+                  : `${(priceRange[1] / 1000000).toFixed(1)}M`}
               </span>
             </div>
           </div>
@@ -142,7 +150,7 @@ export function FilterTab() {
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 pt-3 border-t border-gray-100">
-          <Button size="sm" className="h-8 text-xs">
+          <Button size="sm" className="h-8 text-xs bg-primary text-primary-foreground hover:bg-primary/90">
             Apply Filters
           </Button>
           <Button variant="outline" size="sm" className="h-8 text-xs">
@@ -150,28 +158,6 @@ export function FilterTab() {
           </Button>
         </div>
       </div>
-
-      <style jsx>{`
-        .slider::-webkit-slider-thumb {
-          appearance: none;
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          background: #3b82f6;
-          cursor: pointer;
-          border: 2px solid #ffffff;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .slider::-moz-range-thumb {
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background: #3b82f6;
-          cursor: pointer;
-          border: 2px solid #ffffff;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </div>
   );
 }
