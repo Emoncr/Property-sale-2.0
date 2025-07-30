@@ -1,28 +1,27 @@
 "use client";
 
-import { memo, useMemo } from "react";
-import { CreditCardIcon, UserCircleIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+    useSidebar,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
 import useUserStore from "@/store/userStore";
+import { CreditCardIcon, UserCircleIcon } from "lucide-react";
 import Link from "next/link";
+import { memo, useMemo } from "react";
 import LogoutButton from "./common/LogoutButton";
-import { Button } from "./ui/button";
 
 // Utility function to generate initials and color
 const generateAvatarData = (name) => {
@@ -52,7 +51,7 @@ const generateAvatarData = (name) => {
     M: "bg-emerald-500",
     N: "bg-violet-500",
     O: "bg-rose-500",
-    P: "bg-blue-600",
+    P: "bg-primary",
     Q: "bg-green-600",
     R: "bg-red-600",
     S: "bg-purple-600",

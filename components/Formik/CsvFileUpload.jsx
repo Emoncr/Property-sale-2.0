@@ -1,12 +1,12 @@
 "use client"
 
-import { useCallback, useMemo, useState } from "react"
-import { useDropzone } from "react-dropzone"
-import Papa from "papaparse"
-import { Upload, File, CheckCircle, AlertCircle, X } from "lucide-react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertCircle, CheckCircle, File, Upload, X } from "lucide-react"
+import Papa from "papaparse"
+import { useCallback, useMemo, useState } from "react"
+import { useDropzone } from "react-dropzone"
 
 const CsvFileUpload = ({
     onUpload = () => { },
@@ -80,7 +80,7 @@ const CsvFileUpload = ({
             "flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer transition-all duration-200 "
 
         if (isDragActive && !isDragReject) {
-            classes += "border-blue-500 bg-blue-50 text-blue-600"
+            classes += "border-blue-500 bg-blue-50 text-primary"
         } else if (isDragReject) {
             classes += "border-red-500 bg-red-50 text-red-600"
         } else if (uploadedFile && success) {
@@ -106,7 +106,7 @@ const CsvFileUpload = ({
 
                         {isProcessing ? (
                             <div className="flex flex-col items-center space-y-2">
-                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                                 <p className="text-sm font-medium">Processing CSV...</p>
                             </div>
                         ) : isDragActive ? (

@@ -1,13 +1,13 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { usePropertyStore } from "@/lib/store";
+import { cn } from "@/lib/utils";
+import { Bath, Bed, Camera, Heart, MapPin, Square } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, MapPin, Bed, Bath, Square, Camera } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Property, usePropertyStore } from "@/lib/store";
-import { cn } from "@/lib/utils";
 
 export function PropertyCard({ property, className }) {
   const { favoriteProperties, toggleFavorite } = usePropertyStore();
@@ -85,7 +85,7 @@ export function PropertyCard({ property, className }) {
         <div className="space-y-3">
           <div>
             <Link href={`/properties/${property.id}`}>
-              <h3 className="font-semibold text-lg line-clamp-1 hover:text-blue-600 transition-colors">
+              <h3 className="font-semibold text-lg line-clamp-1 hover:text-primary transition-colors">
                 {property.title}
               </h3>
             </Link>

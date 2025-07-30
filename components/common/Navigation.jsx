@@ -1,19 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import {
-  Menu,
-  X,
-  Home,
-  MessageCircle,
-  Heart,
-  User,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useAuthStore } from "@/lib/store";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,8 +10,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { useAuthStore } from "@/lib/store";
+import {
+  Heart,
+  Home,
+  LogOut,
+  Menu,
+  MessageCircle,
+  Settings,
+  User,
+  X,
+} from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Home className="h-8 w-8 text-blue-600" />
+            <Home className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold text-gray-900">
               Property Sale
             </span>
@@ -53,7 +53,7 @@ export function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                className="text-gray-700 hover:text-primary transition-colors font-medium"
               >
                 {item.label}
               </Link>
@@ -128,10 +128,10 @@ export function Navigation() {
             ) : (
               <div className="flex items-center space-x-2">
                 <Button variant="ghost" asChild>
-                  <Link href="/auth/sign-in">Sign In</Link>
+                  <Link href="/sign-in">Sign In</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/auth/sign-up">Get Started</Link>
+                  <Link href="/sign-up">Get Started</Link>
                 </Button>
               </div>
             )}
@@ -161,7 +161,7 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -171,7 +171,7 @@ export function Navigation() {
                 <>
                   <Link
                     href="/dashboard"
-                    className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     Dashboard
@@ -181,7 +181,7 @@ export function Navigation() {
                       logout();
                       setIsOpen(false);
                     }}
-                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                   >
                     Sign Out
                   </button>
@@ -190,14 +190,14 @@ export function Navigation() {
                 <>
                   <Link
                     href="/auth/sign-in"
-                    className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
                     href="/auth/sign-up"
-                    className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                    className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     Get Started

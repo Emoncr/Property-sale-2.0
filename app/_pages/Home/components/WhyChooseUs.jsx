@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import React from "react";
-import { ArrowRight, MessageCircle, Search, Shield } from "lucide-react";
+import { MessageCircle, Search, Shield } from "lucide-react";
 const WhyChooseUs = () => {
   const features = [
     {
@@ -44,7 +43,7 @@ const WhyChooseUs = () => {
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardContent className="p-8 text-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <feature.icon className="h-8 w-8 text-blue-600" />
+                      <feature.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
                       {feature.title}

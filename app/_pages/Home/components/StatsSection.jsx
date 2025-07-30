@@ -1,5 +1,4 @@
-import React from "react";
-import { ArrowRight, Search, Shield, MessageCircle, Star, TrendingUp, Users, MapPin } from 'lucide-react';
+import { MapPin, Star, TrendingUp, Users } from 'lucide-react';
 const StatsSection = () => {
       const stats = [
     { label: 'Properties Listed', value: '10,000+', icon: TrendingUp },
@@ -17,7 +16,7 @@ const StatsSection = () => {
               <div key={stat.label} className="text-center">
                 <div className="flex justify-center mb-4">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <stat.icon className="h-8 w-8 text-blue-600" />
+                    <stat.icon className="h-8 w-8 text-primary" />
                   </div>
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2">
